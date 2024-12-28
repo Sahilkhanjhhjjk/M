@@ -1,0 +1,2 @@
+pyTelegramBotAPI==4.10.0   # This is the version of the TeleBot API used in the script
+asyncio==3.4.3             # Required for asynchronous I/O in Python (typically built-in for Python >= 3.7)
