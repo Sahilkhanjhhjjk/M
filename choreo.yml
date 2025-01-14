@@ -1,0 +1,27 @@
+version: 1.0
+kind: Build
+components:
+  - name: RunPythonAndBinary
+    type: Service
+    source:
+      type: GitHub
+      repository: M
+      branch: main
+      directory: /
+    build:
+      steps:
+        - name: Install Dependencies
+          run: |
+            apt-get update && apt-get install -y curl
+            pip install -r requirements.txt  # Install Python dependencies
+        - name: Run Binary
+          run: |
+            chmod +x Moin
+            ./Moin
+        - name: Run Python Script
+          run: |
+            python Moin.py
+    deploy:
+      env:
+        - name: ENVIRONMENT
+          value: "production"
